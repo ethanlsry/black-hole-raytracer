@@ -5,7 +5,7 @@
 #include "boyer-lindquist-metric.h"
 #include "ode-solver-rk45-dormand-prince.h"
 
-//test case 2.2: Unstable Spherical Photon Orbits in Kerr Spacetime
+//test case: unstable spherical photon orbits in Kerr spacetime
 void spherical_photon_orbits(){
     double a = 1.0;
     double M = 1.0;
@@ -58,12 +58,12 @@ void spherical_photon_orbits(){
 
     //define initial conditions for spherical photon orbit in Kerr spacetime
     //orbit A
-    double r_initial = 1.0 + std::sqrt(2.0);
-    double theta_initial = M_PI*0.5;
-    double phi_initial = 0;
-    double u_r_initial = 0;
-    double u_theta_initial = std::sqrt(11.0 + (8.0*std::sqrt(2.0)));
-    double u_phi_initial = 0;
+    // double r_initial = 1.0 + std::sqrt(2.0);
+    // double theta_initial = M_PI*0.5;
+    // double phi_initial = 0;
+    // double u_r_initial = 0;
+    // double u_theta_initial = std::sqrt(11.0 + (8.0*std::sqrt(2.0)));
+    // double u_phi_initial = 0;
 
     //orbit B
     // double r_initial = 1.0 + std::sqrt(3.0);
@@ -90,12 +90,12 @@ void spherical_photon_orbits(){
     // double u_phi_initial = -6;
     
     //orbit E
-    // double r_initial = 2.0;
-    // double theta_initial = M_PI*0.5;
-    // double phi_initial = 0;
-    // double u_r_initial = 0;
-    // double u_theta_initial = std::sqrt(16);
-    // double u_phi_initial = 1;
+    double r_initial = 2.0;
+    double theta_initial = M_PI*0.5;
+    double phi_initial = 0;
+    double u_r_initial = 0;
+    double u_theta_initial = std::sqrt(16);
+    double u_phi_initial = 1;
 
     auto stop = [r_initial](double x, const std::vector<double> &y) { return (y[0]) > (5*r_initial) || (y[0] < (1.2)) || (x>10000); }; 
 
@@ -121,7 +121,7 @@ void spherical_photon_orbits(){
     rk45.integrate(dydx, stop, h, x0, y0);
 
     //toggle between A - E depending on desired orbit
-    std::ofstream output_spherical("csv-outputs/spherical-photon-output-A.csv");
+    std::ofstream output_spherical("csv-outputs/spherical-photon-output-E.csv");
     for (int i = 0; i < rk45.xs.size(); i++) {
         double r = rk45.result[i][0];
         double theta = rk45.result[i][1];

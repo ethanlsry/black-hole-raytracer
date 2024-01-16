@@ -15,7 +15,21 @@ The first case for Einstein rings was a photon that travels behind the black hol
 
 The second case for Einstein rings was a photon that travels one time around the black hole and then back to its starting position. For this case, we used r = 20M and ξ = 0.24904964. Figure 2 was generated with RK45 absolute and relative tolerances set to e−17.
 
-![FIG.21 Einstein Ring Case 2](https://github.com/ethanlsry/black-hole-raytracer/blob/main/plots/einstein-ring-output-case-2.png?raw=true)
+![FIG.2 Einstein Ring Case 2](https://github.com/ethanlsry/black-hole-raytracer/blob/main/plots/einstein-ring-output-case-2.png?raw=true)
+
+
+## Unstable Spherical Photon Orbits in Kerr Spacetime
+
+We implemented five unstable photon orbits with different initial parameters in spherical-photon-orbits.cpp. 3D plots (via K3D) showed each trajectory continued for some amount of time before it either fell to the singularity or its radius grew large. We decided to define “large” in our stop function as five times the initial radius. Orbits A, C, D, and E eventually spiraled outward while orbit B eventually collapsed inward. Orbit D is shown below (FIG 3).
+
+![FIG.3: 3D Plots of Unstable Photon Orbit](https://github.com/ethanlsry/black-hole-raytracer/blob/main/plots/spherical-orbit-k3d-plot.png?raw=true)
+
+We also calculated fractional error of radii as functions of time to compare stability across orbits. We found that orbit A was the most stable while orbit B was the least stable based on duration in orbit (FIG 4).
+
+FIG. 4: Decay of Unstable Orbits
+![FIG. 4: Decay of Unstable Orbits](https://github.com/ethanlsry/black-hole-raytracer/blob/main/plots/spherical_photon_orbit_frac_error.png?raw=true)
+
+These test cases established strong confidence in our boyer lindquist metric file and lambda function. They worked for not only the Einstein rings, but also a scenario in which the a parameter representing rotation of the black hole is set to a non-zero value. Now we can proceed to the fun part: raytracing a black hole.
 
 
 ## File Structure
