@@ -12,12 +12,12 @@ void render_black_hole(){
     const double a = 0.99;
     const double M = 1.0;
     const double D = 500.0;
-    const double theta_0 = 89.0 * (M_PI / 180.0);
+    const double theta_0 = 85.0 * (M_PI / 180.0);
 
-    // const int screenX_dim = 64;
-    // const int screenY_dim = 36;
-    const int screenX_dim = 1920;
-    const int screenY_dim = 1080;
+    const int screenX_dim = 64;
+    const int screenY_dim = 36;
+    // const int screenX_dim = 1920;
+    // const int screenY_dim = 1080;
 
     const int minMax_screenX = 25;
     const int minMax_screenY = 15;
@@ -158,7 +158,7 @@ void render_black_hole(){
         std::cout << "(" << y << " of " << screenY_dim << ")" << std::endl;
     }
 
-    std::ofstream output_hole("black-hole-output-HD-theta=89-a=0.99.csv");
+    std::ofstream output_hole("csv-outputs/black-hole-output-theta=85-a=0.99.csv");
     for (int y=0; y < screenY_dim; y++){
         for (int x=0; x < screenX_dim; x++){
             output_hole << std::setprecision(10) << screen[y][x];
