@@ -1,0 +1,1 @@
+int spherical_photon_orbits();
