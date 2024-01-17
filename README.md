@@ -1,5 +1,5 @@
 # Raytracing images of a black hole using General Relativity, C++, and Python
-Created in collaboration with Michael Filippini and with support from Alex Chen. Underlying GR theory is from  MacDonald & Thorne (1982), Komissarov (2004), 
+Created in collaboration with Michael Filippini and with support from Alex Chen. Underlying GR theory is from  MacDonald & Thorne (1982), Komissarov (2004), and other sources cited below.
 
 This project uses numerical ODE integration to solve the geodesic equation for photons near the event horizon of a rotating black hole. We applied raytracing to render an image of the accretion disk distorted by a black hole's spacetime.
 
@@ -19,7 +19,7 @@ The second case for Einstein rings was a photon that travels one time around the
 
 
 ## Unstable Spherical Photon Orbits in Kerr Spacetime
-We implemented five unstable photon orbits with different initial parameters in spherical-photon-orbits.cpp. 3D plots (via K3D) showed each trajectory continued for some amount of time before it either fell to the singularity or its radius grew large. We decided to define “large” in our stop function as five times the initial radius. Orbit D, which eventually spiralled outward, is shown below (FIG 3).
+We implemented five unstable photon orbits with different initial parameters in spherical-photon-orbits.cpp (parameters given by Teo, E. 2003). 3D plots (via K3D) showed each trajectory continued for some amount of time before it either fell to the singularity or its radius grew large. We decided to define “large” in our stop function as five times the initial radius. Orbit D, which eventually spiralled outward, is shown below (FIG 3).
 
 ![FIG.3: 3D Plots of Unstable Photon Orbit](https://github.com/ethanlsry/black-hole-raytracer/blob/main/plots/spherical-orbit-k3d-plot.png?raw=true)
 
@@ -43,3 +43,11 @@ We iterated over each pixel based on a desired resolution and solved the geodesi
 
 ## File Structure
 Our files are set up such that they can all be compiled together without conflicts. We only have a main method in raytracer-runner.cpp and we properly use header files for declarations. This meant changing the provided Dormand Prince solver to keep only template functions and declarations in a header file and function definitions in a cpp file. Without this change we ran the risk of multiple definitions of functions when including the Dormand Prince solver in multiple files. In future developemnt we hope to render multiple consecutive initial parameters to create a black hole movie.
+
+## Sources
+Komissarov, S. S. 2004, Monthly Notices of the Royal Astronomical Society, 350, 427
+Luminet, J. P. 1979, Astronomy and Astrophysics, 75, 228
+MacDonald, D., & Thorne, K. S. 1982, Monthly Notices of the Royal Astronomical Society, 198, 345
+Müller, T. 2008, Physical Review D, 77, 124042
+Novikov, I. D., & Thorne, K. S. 1973, Astrophysics of black holes, in Black Holes (Les Astres Occlus)
+Teo, E. 2003, General Relativity and Gravitation, 35, 1909
